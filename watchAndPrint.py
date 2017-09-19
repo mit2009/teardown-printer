@@ -6,7 +6,6 @@ files = os.listdir(cwd)
 
 printers = ['athena', 'cadlab']
 i = 0
-switch = {0: 1, 1: 0}
 
 for f in files:
     parts = f.split('.')
@@ -26,7 +25,7 @@ while 1:
             else:
                 os.system('lpr -P ' + printers[i] + ' ' + f)
                 os.system('mv ' + f + ' ' + f + '.done')
-            newi = switch[i]
+            newi = i + 1 % len(printers)
             os.system("mv " + str(i) + '.txt ' + str(newi) + '.txt')
             i = newi
     time.sleep(1)
