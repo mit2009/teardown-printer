@@ -38,7 +38,7 @@ while 1:
                  os.system('mv ' + f + ' ' + f + '.done')
             #update the i so we can switch between the printers. In 2018, we're using 2 printers. 
             print('printed photo number '+ str(i+1) + ': '+str(f))
-            newi = i + 1 % len(printers)
+            newi = (i + 1) % len(printers)
             print(newi)
             os.system("mv " + str(i) + '.txt ' + str(newi) + '.txt')
             i = newi
